@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: griffin-employee
+  name: griffin-employee
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: griffin-employee-pod
+  template:
+    metadata:
+      labels:
+        app: griffin-employee-pod
+    spec:
+      containers:
+      - image: vivekguptagupta/griffin-employee:0.0.1
+        name: griffin-employee
